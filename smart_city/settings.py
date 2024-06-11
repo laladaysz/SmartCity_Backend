@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-j1yh1q&-$t+u0!6x^vc@mdmx87dafdvj+y!qxhcwt!s2qj(#)=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','10.0.2.2',]
+ALLOWED_HOSTS = ['localhost','127.0.0.1','10.0.2.2', '192.168.56.1', 'laladaysz.pythonanywhere.com']
+
 
 # Application definition
 
@@ -59,6 +60,7 @@ SIMPLE_JWT = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,6 +141,9 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+STATIC_ROOT = BASE_DIR
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
